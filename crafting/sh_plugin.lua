@@ -145,6 +145,14 @@ function RECIPES:Register( tbl )
                     end
                 end
             end
+		if(tbl.result) then
+			local inventory = player:getChar():getInv()
+			for k,v in pairs(tbl.result) do
+				for i=1,v do
+					inventory:add(k)
+				end	
+			end
+		end
             player:notifyLocalized("donecrafting", self.name)
 
 		end
